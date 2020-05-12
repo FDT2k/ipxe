@@ -1,0 +1,4 @@
+#!ipxe
+isset ${server-ip} || set server-ip 192.168.64.118
+echo Warming Up
+dhcp && chain http://${server-ip}:8080/geekagency.ipxe
