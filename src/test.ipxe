@@ -1,0 +1,14 @@
+#!ipxe
+isset ${server-ip} || set server-ip 192.168.64.118
+
+:start
+menu iPXE boot menu
+item --gap--             ------------------------- Operating systems ------------------------------
+item --key g gka	GKA
+
+
+:gka
+dhcp && chain http://${server-ip}:8080/gka2.ipxe || goto start
+
+
+goto start
